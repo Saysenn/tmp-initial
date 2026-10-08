@@ -17,6 +17,29 @@ Both are modular monoliths in plain JavaScript (`.js` / `.jsx`) with Tailwind CS
 7. Every API route is listed in `configs/api.js`, and the browser calls it only through `api` in `lib/api/client.js`. Never write an `"/api/..."` string anywhere else. Routes are versioned (`/api/v1`); a breaking change gets `v2`, never an edit to `v1` in place.
 8. Multi-step writes are one database transaction. Outside services (Stripe, calendar, email) run after it succeeds.
 9. File naming: kebab-case for every file (`sign-in-form.jsx`, `use-board.js`, `site-status.js`).
+10. Every project has a root `scripts/` folder, and every repeatable task (database migration, seeding, provider setup) is a script there with an npm command in the root `package.json`. Nobody should need to copy SQL into a dashboard or remember a long command. See Scripts below.
+
+## Scripts (Both Stacks)
+
+Every project ships with at least these npm commands:
+
+| Command                | Script                     | What it does                                                   |
+| ---------------------- | -------------------------- | -------------------------------------------------------------- |
+| `npm run migrate`      | `scripts/migrate.mjs`      | Brings the database schema up to date                          |
+| `npm run db:seed`      | `scripts/seed.mjs`         | Loads sample data into a local database                        |
+| `npm run db:reset`     | `scripts/reset.mjs`        | Drops and rebuilds the local database, then migrates and seeds |
+| `npm run <tool>:setup` | `scripts/<tool>-setup.mjs` | Creates provider records from config (e.g. Stripe products)    |
+
+Rules for `npm run migrate`:
+1. It reads the connection string from env (through `configs/env.js` or `.env`), never from a value written in the script.
+2. It is safe to run again and again: running it twice changes nothing the second time.
+3. It prints which database it is about to change and what it applied, and exits with an error code when anything fails.
+4. Against a hosted or production database it asks for confirmation (or needs a `--yes` flag). `db:reset` refuses to run against anything but a local database.
+5. Claude never runs `migrate` against a hosted database unless the user asks for it in that conversation.
+
+Where the schema lives:
+- **Next.js (Supabase):** `migrate` applies `supabase/schema.sql`, which is written to be rerun (`if not exists`, `create or replace`), then any new files in `supabase/patches/`.
+- **React + Node:** `migrate` runs the numbered files in `server/src/db/migrations/` in order, inside a transaction each, and records applied ones in a `schema_migrations` table so each runs only once.
 
 ================================================================================
 
@@ -102,7 +125,7 @@ Next.js (App Router), React, Supabase (Postgres, auth, row level security), Stri
 │   └── templates/                        # Auth email templates
 │
 ├── public/                               # Static files (images, svgs, fonts)
-├── scripts/                              # One-off Node scripts (migrate, stripe setup)
+├── scripts/                              # migrate.mjs, seed.mjs, reset.mjs, <tool>-setup.mjs (run via npm run)
 ├── docs/                                 # Plans, decisions, todo
 ├── .env.example                          # Every env var with placeholder values; real .env files are never committed
 ├── jsconfig.json                         # Path alias @/ → src/
@@ -252,7 +275,7 @@ React (Vite) on the client, Node with Express on the server, Postgres, Stripe, T
 │   ├── schemas/                          # zod schemas for requests and forms, one file per feature
 │   └── constants/                        # Enums and fixed lists both sides need
 │
-├── scripts/                              # One-off Node scripts (migrate, stripe setup)
+├── scripts/                              # migrate.mjs, seed.mjs, reset.mjs, <tool>-setup.mjs (run via npm run)
 ├── docs/                                 # Plans, decisions, todo
 └── package.json                          # npm workspaces: client, server, shared
 ```
