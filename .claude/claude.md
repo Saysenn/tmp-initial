@@ -1,7 +1,7 @@
 # Project Rules
 
 ## Architecture
-Follow the architecture rules in @architecture.md
+Follow the architecture rules in @architecture.md and the folder layout in @folder-structure.md
 
 ## Components
 1. Components first. Before writing any UI, check the existing components (links, buttons, pagination, tables, skeletons, search boxes, etc.) and reuse them. If a small piece is missing, create it as a reusable React component instead of inlining the markup.
