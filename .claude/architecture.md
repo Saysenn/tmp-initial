@@ -2,7 +2,7 @@
 
 1. Strictly a modular monolith. Each module (feature or domain) owns its routes, services, data access, UI, and config. Modules talk to each other only through their public entry file (`index.js`), never by importing another module's internals.
 2. Plain JavaScript only (`.js` / `.jsx`). No TypeScript, no `.ts` / `.tsx` files. Use JSDoc comments where types help.
-3. Centralize configs. Every service and package, backend or frontend, has its own config file. Site modes and site-wide settings (environment, feature flags, site name, base URLs) live in `site.js`.
+3. Centralize configs. Every service and package, backend or frontend, has its own config file. Site modes and site-wide settings (environment, feature flags, site name, base URLs) live in `site.js`. site.js contains ("maintenance", "coming-soon","live") configurations of the website.
 4. No hardcoded values or data. Text, URLs, colors, limits, dropdown options, and API endpoints come from config, constants, environment variables, or the database. Secrets live only in environment variables and are never committed.
 5. Use proper design patterns for complex features so implementations can be swapped easily (see below).
 
