@@ -5,6 +5,7 @@
 - Thick border designs
 - AI style glass backgrounds (glassmorphism, frosted or blurred panels)
 - Decorative underline designs on headings, titles, or navigation
+- thick borders and dot desings on tags or cards
 
 ## Always Do
 - Stick with smooth border designs: rounded corners, thin and subtle borders in soft colors, applied consistently across components. Border widths, colors, and radii come from design tokens.
