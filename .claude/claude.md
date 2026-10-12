@@ -26,3 +26,8 @@ Follow the architecture rules in @architecture.md and the folder layout in @fold
    - @seo.md
    - @styles.md
    - @contents.md
+
+## Security
+1. Projects start in development and testing, so `npm run db:seed` creates a default test account: username `admin`, password `Joker1234!`. The values live in `.env.example` (`SEED_ADMIN_USERNAME`, `SEED_ADMIN_PASSWORD`), not in code.
+2. The test account exists only in local and test databases. The seed script refuses to run in production, and the account must never reach a hosted database.
+3. During local development and testing, sign in with the test account yourself through the Claude browser extension. No need to ask first.
