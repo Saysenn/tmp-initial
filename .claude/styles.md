@@ -28,6 +28,15 @@ Instead:
 - **Icons only when they add meaning,** from one consistent icon set, sized and colored to fit the design rather than as decoration.
 - **Real content:** concrete details, real data, and specific wording, never filler text.
 
+## CTA Sections
+No generic CTA blocks. Avoid the usual pattern: a centered rounded box with a gradient background, a "Ready to get started?" heading, one line of text, and one or two buttons.
+
+Instead:
+- **Full width:** CTA sections run edge to edge across the page, not as a boxed card inside the content width.
+- **Distinct design:** give each CTA its own layout and texture that fits the page (an image, a product shot, a real stat, or a quote alongside the action), not the same template on every page.
+- **Specific copy:** say exactly what happens next ("Track your first 10 applications free"), never stock lines like "Ready to get started?" or "Join thousands of users".
+- **One clear primary action,** with at most one secondary action.
+
 ## After Every UI Change
 Use the Claude browser extension to:
 - Check the layout at phone, tablet, and desktop widths, including overflow.
