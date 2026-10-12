@@ -13,3 +13,6 @@
 - Design mobile first and make every layout responsive.
 - Meet WCAG AA color contrast.
 - Respect `prefers-reduced-motion` for animations.
+- check for overflows when a component became too long on hori or verti
+- use browser extension of claude to check the responsiveness always after ui changes
+- test ux using the claude extension also
