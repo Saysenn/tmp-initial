@@ -35,3 +35,4 @@ Follow the architecture rules in @architecture.md and the folder layout in @fold
 
 ## Development
 1. never commit anything yourself  - I do the committing myself
+2. if i told you to log in, you login. never ask me to login myself. you login if i told you so to open admins or dashboard pages. i won't tell you to login if it's not safe so you listen to me.
