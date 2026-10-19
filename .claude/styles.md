@@ -41,3 +41,10 @@ Instead:
 Use the Claude browser extension to:
 - Check the layout at phone, tablet, and desktop widths, including overflow.
 - Click through the changed flow as a user would and confirm it works.
+
+
+## Pagination
+1. Use the shared pager (`page-steps.jsx` or `pager.jsx`) with page numbers from `pageItems()` in `lib/pagination.js`.
+2. Layout: `‹ 1 2 3 4 5 … 40 ›`, at most 7 slots so the bar keeps its width. First and last pages always show.
+3. Count on the left ("1 to 25 of 40"). The current page is filled, and arrows are disabled at the ends.
+4. Labels and page size come from config. Searching or filtering resets to page 1.
