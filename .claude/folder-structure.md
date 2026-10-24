@@ -72,6 +72,7 @@ Next.js (App Router), React, Supabase (Postgres, auth, row level security), Stri
 │   │       ├── actions.js                # "use server": zod schema, action wrapper, one service call, refresh
 │   │       ├── service.js                # import "server-only": business logic as fn(ctx, input)
 │   │       ├── repository.js             # import "server-only": database reads and writes only
+│   │       ├── jobs.js                   # Background jobs: name, handler, retry settings
 │   │       ├── schemas.js                # zod schemas shared by actions and forms
 │   │       ├── components/               # Feature UI, built from components/ui
 │   │       ├── prompts/                  # AI prompts (when the feature uses AI)
@@ -84,6 +85,7 @@ Next.js (App Router), React, Supabase (Postgres, auth, row level security), Stri
 │   │   ├── layout/                       # app-frame, sidebar, mobile-dock, user-menu, route-error
 │   │   ├── charts/                       # Chart wrappers and chart theme
 │   │   ├── theme/                        # Theme head and appearance sync
+│   │   ├── tour/                         # Shared guided tour (steps from configs/tours.js)
 │   │   └── analytics/                    # Analytics loader with consent
 │   │
 │   ├── configs/                          # Every setting and list, one file per area. No magic values elsewhere.
@@ -104,6 +106,7 @@ Next.js (App Router), React, Supabase (Postgres, auth, row level security), Stri
 │   │   ├── errors.js                     # AppError and friends
 │   │   ├── cache.js                      # Server read cache, invalidated on every write
 │   │   ├── events.js                     # Event bus: features emit, notifications subscribe
+│   │   ├── queue/                        # Queue adapter, outbox relay, worker
 │   │   ├── toast.js                      # Toast wrapper (success, error, info) over the toast library
 │   │   ├── api/
 │   │   │   ├── http.js                   # fetch helper: getData, postData, putData, patchData, deleteData, uploadFile, ApiError
@@ -204,6 +207,7 @@ React (Vite) on the client, Node with Express on the server, Postgres, Stripe, T
 │       │   ├── ui/                       # button, input, select, multi-pick, hybrid-multi-pick, dialog, card,
 │       │   │                             # skeleton, badge, pager, empty-state, tabs, switch, popover, ...
 │       │   ├── layout/                   # app-frame, sidebar, header, footer, route-error
+│       │   ├── tour/                     # Shared guided tour (steps from configs/tours.js)
 │       │   └── seo/                      # page-meta.jsx (title, description, canonical, Open Graph), json-ld.jsx
 │       │
 │       ├── configs/                      # Frontend settings and lists, one file per area
@@ -241,6 +245,7 @@ React (Vite) on the client, Node with Express on the server, Postgres, Stripe, T
 │   │   │       ├── controller.js         # Reads req, calls one service function, sends the response
 │   │   │       ├── service.js            # Business logic as fn(ctx, input); never sees req or res
 │   │   │       ├── repository.js         # Database reads and writes only
+│   │   │       ├── jobs.js               # Background jobs: name, handler, retry settings
 │   │   │       ├── schemas.js            # Re-exports request schemas from shared/
 │   │   │       ├── events.js             # Event names this module emits
 │   │   │       └── strategies/           # Swappable implementations plus factory.js
@@ -258,6 +263,7 @@ React (Vite) on the client, Node with Express on the server, Postgres, Stripe, T
 │   │   │   ├── errors.js                 # AppError and friends
 │   │   │   ├── context.js                # Builds ctx (user, tenant, db) from the request
 │   │   │   ├── events.js                 # Event bus: modules emit, notifications subscribe
+│   │   │   ├── queue/                    # Queue adapter, outbox relay, worker
 │   │   │   ├── cache.js                  # Server read cache (Redis), invalidated on every write
 │   │   │   ├── logger.js
 │   │   │   ├── email/send.js             # Email sending adapter
