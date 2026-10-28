@@ -52,5 +52,6 @@ Admin areas and dashboards ship with guided tours for non-technical users. Follo
 ## Development
 1. never commit anything yourself  - I do the committing myself
 2. if i told you to log in, you login. never ask me to login myself. you login if i told you so to open admins or dashboard pages. i won't tell you to login if it's not safe so you listen to me.
+3. After every change to files, end your reply with a short suggested commit message in a code block, ready to copy. Use the conventional format (`feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `style:`), one line, under 72 characters. Add a short bullet body only when the change touches several areas. Suggest it only; never run the commit (see rule 1).
 
 
