@@ -47,6 +47,19 @@ Admin areas and dashboards ship with guided tours for non-technical users. Follo
 1. Projects start in development and testing, so `npm run db:seed` creates a default test account: username `admin`, password `Joker1234!`. The values live in `.env.example` (`SEED_ADMIN_USERNAME`, `SEED_ADMIN_PASSWORD`), not in code.
 2. The test account exists only in local and test databases. The seed script refuses to run in production, and the account must never reach a hosted database.
 3. During local development and testing, sign in with the test account yourself through the Claude browser extension. No need to ask first.
+4. Every project (and every package with its own env, e.g. `client/` and `server/`) has three env files:
+
+   | File | Purpose | Committed? |
+   | --- | --- | --- |
+   | `.env.example` | Every key with placeholder values and a short comment on each | Yes |
+   | `.env.local` | Local development values: local database, test keys, `localhost` URLs | No |
+   | `.env.production` | Mirrors production exactly: live URLs, live keys, hosted database | No |
+
+   - All three always have the same keys. When you add, rename or remove a key, update all three in the same change.
+   - `.env.production` is the record of what the hosting dashboard (Vercel, server, CI secrets) must contain. When it changes, say which values need to be updated on the host.
+   - `.env.local` and `.env.production` are listed in `.gitignore` and are never committed, printed or pasted into chat.
+   - Never use test keys in `.env.production` or live keys in `.env.local`.
+   - Add an `npm run env:check` script that fails if any of the three files is missing a key the others have.
 
 
 ## Development

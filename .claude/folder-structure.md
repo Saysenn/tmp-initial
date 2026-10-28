@@ -23,12 +23,13 @@ Both are modular monoliths in plain JavaScript (`.js` / `.jsx`) with Tailwind CS
 
 Every project ships with at least these npm commands:
 
-| Command                | Script                     | What it does                                                   |
-| ---------------------- | -------------------------- | -------------------------------------------------------------- |
-| `npm run migrate`      | `scripts/migrate.mjs`      | Brings the database schema up to date                          |
-| `npm run db:seed`      | `scripts/seed.mjs`         | Loads sample data into a local database                        |
-| `npm run db:reset`     | `scripts/reset.mjs`        | Drops and rebuilds the local database, then migrates and seeds |
-| `npm run <tool>:setup` | `scripts/<tool>-setup.mjs` | Creates provider records from config (e.g. Stripe products)    |
+| Command                | Script                     | What it does                                                                         |
+| ---------------------- | -------------------------- | ------------------------------------------------------------------------------------ |
+| `npm run migrate`      | `scripts/migrate.mjs`      | Brings the database schema up to date                                                |
+| `npm run db:seed`      | `scripts/seed.mjs`         | Loads sample data into a local database                                              |
+| `npm run db:reset`     | `scripts/reset.mjs`        | Drops and rebuilds the local database, then migrates and seeds                       |
+| `npm run <tool>:setup` | `scripts/<tool>-setup.mjs` | Creates provider records from config (e.g. Stripe products)                          |
+| `npm run env:check`    | `scripts/env-check.mjs`    | Fails if `.env.example`, `.env.local` and `.env.production` don't have the same keys |
 
 Rules for `npm run migrate`:
 1. It reads the connection string from env (through `configs/env.js` or `.env`), never from a value written in the script.
@@ -130,7 +131,9 @@ Next.js (App Router), React, Supabase (Postgres, auth, row level security), Stri
 ├── public/                               # Static files (images, svgs, fonts)
 ├── scripts/                              # migrate.mjs, seed.mjs, reset.mjs, <tool>-setup.mjs (run via npm run)
 ├── docs/                                 # Plans, decisions, todo
-├── .env.example                          # Every env var with placeholder values; real .env files are never committed
+├── .env.example                          # Every env var with placeholder values (committed)
+├── .env.local                            # Local development values (gitignored)
+├── .env.production                       # Mirrors production exactly (gitignored)
 ├── jsconfig.json                         # Path alias @/ → src/
 ├── next.config.mjs
 ├── postcss.config.mjs
