@@ -1,5 +1,9 @@
 # Project Rules
 
+# ANSWERING
+1. keep your answers in summary and keep it short a very shortlist for easy reading
+2. keep your answers, clear, concise and spot on.
+
 ## Architecture
 Follow the architecture rules in @architecture.md and the folder layout in @folder-structure.md
 
