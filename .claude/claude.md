@@ -15,7 +15,7 @@ Follow the architecture rules in @architecture.md and the folder layout in @fold
    - an advanced hybrid multi-select dropdown with a built-in sidebar that shows the selected options as you pick them
 
    For dropdowns with many options, use the hybrid version: a built-in search bar plus the ability to add a new value on the spot.
-3. Every data-driven component handles loading (skeletons), empty, and error states.
+3. Every data-driven component handles loading (skeletons), empty, and error states, plus the other UI states in @ui-states.md (no internet, slow network, no search results, permission denied, session expired, form validation, success).
 4. Accessible by default: semantic HTML, labels on inputs, keyboard navigation, and visible focus states.
 
 ## Data and Performance
@@ -43,6 +43,8 @@ Follow the architecture rules in @architecture.md and the folder layout in @fold
    - @seo.md
    - @styles.md
    - @contents.md
+   - @ui-states.md
+   - @motion.md
 
 ## Onboarding
 Admin areas and dashboards ship with guided tours for non-technical users. Follow @onboarding.md.
