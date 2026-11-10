@@ -45,6 +45,7 @@ Follow the architecture rules in @architecture.md and the folder layout in @fold
    - @contents.md
    - @ui-states.md
    - @motion.md
+   - @dashboard.md (dashboards and admin areas: same soft, minimal feel every time, fresh layout)
 
 ## Onboarding
 Admin areas and dashboards ship with guided tours for non-technical users. Follow @onboarding.md.
