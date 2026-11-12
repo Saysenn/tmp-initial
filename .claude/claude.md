@@ -73,5 +73,13 @@ Admin areas and dashboards ship with guided tours for non-technical users. Follo
 1. never commit anything yourself  - I do the committing myself
 2. if i told you to log in, you login. never ask me to login myself. you login if i told you so to open admins or dashboard pages. i won't tell you to login if it's not safe so you listen to me.
 3. After every change to files, end your reply with a short suggested commit message in a code block, ready to copy. Use the conventional format (`feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `style:`), one line, under 72 characters. Add a short bullet body only when the change touches several areas. Suggest it only; never run the commit (see rule 1).
+4. Clean up after yourself. When a task makes files that end up failed, replaced or unused (test output, mock or placeholder assets, old generated images, temp folders, logs from finished runs, scratch scripts), delete them before you finish, and say what you removed. Only delete what you made in this task or what is clearly stale; ask before deleting anything else. Tools and scripts that generate files must clean up their own leftovers (temp files, half written output, outputs for items that were removed).
+4. Cleanup suggestions. Watch for stale or unused things in the codebase and suggest removing them. Never delete on your own.
+   - **What counts:** files nothing imports (components, hooks, helpers, pages), unused images, fonts and other assets, unused exports, CSS classes and design tokens, config entries and env keys nothing reads, unused npm dependencies, dead feature flags, commented-out code, and leftover temp or backup files.
+   - **When:** after a change that leaves something orphaned (a replaced component, a renamed asset, a removed feature), and whenever I ask for a cleanup pass.
+   - **Check before suggesting:** search the whole codebase, including dynamic imports, config lookups, string paths, `public/` URLs, CSS `url()`, and scripts. If you can't be sure something is unused, say so instead of listing it as safe.
+   - **How to ask:** a short numbered list, one item per line: path, why it looks unused, and what removing it affects (e.g. env key on the host, migration). I answer yes or no per number (e.g. "1 yes, 2 no, 3 yes"), or "all yes" / "all no".
+   - **On yes:** remove only the approved items, plus any references and related entries (imports, config, all three env files, `package.json`). Then confirm the build and `npm run env:check` still pass.
+   - **On no:** leave it, and don't suggest that item again in the same conversation.
 
 
