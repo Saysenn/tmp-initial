@@ -1,0 +1,14 @@
+{
+  "name": "Warm lifestyle",
+  "base": "Natural lifestyle photograph in a warm, clean kitchen or shop setting, soft window daylight, shallow depth of field, muted warm color palette, photorealistic, no people's faces, no watermark.",
+  "negative": "blurry, distorted text, cluttered, faces, watermark, low quality, cartoon",
+  "seed": 4321,
+  "width": 1024,
+  "height": 1024,
+  "types": {
+    "product": "{name}[, a {brand} product][, {details}] on a wooden counter",
+    "brand": "Several {name} products on a shop shelf[, {details}]",
+    "category": "A full shelf of {name}[, {details}] in a wholesale cash and carry aisle",
+    "default": "{name}[, {details}]"
+  }
+}

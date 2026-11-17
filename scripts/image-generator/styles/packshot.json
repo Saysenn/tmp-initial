@@ -1,0 +1,18 @@
+{
+  "name": "Clean packshot",
+  "base": "Professional e-commerce product photograph on a pure white seamless background, soft even studio lighting from the front left, a soft natural shadow under the product, front-facing three-quarter view, centered with even margins, sharp focus, true-to-life colors, photorealistic, no props, no hands, no watermark.",
+  "negative": "blurry, distorted text, misspelled label, extra objects, hands, people, watermark, frame, low quality, cartoon",
+  "seed": 1234,
+  "width": 1024,
+  "height": 1024,
+  "sizes": {
+    "banner": [1536, 640]
+  },
+  "types": {
+    "product": "{name}[, a {brand} product][, {details}]",
+    "brand": "A tidy group of three to five typical {name} products standing together[, {details}], labels clearly visible",
+    "category": "A neat arrangement of typical {name} products in plain unbranded packaging[, {details}]",
+    "banner": "Wide shot of {name}[, {details}], products arranged in a line with space on the left for text",
+    "default": "{name}[, {details}]"
+  }
+}

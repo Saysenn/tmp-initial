@@ -1,0 +1,13 @@
+{
+  "provider": "mock",
+  "writer": "template",
+  "style": "packshot",
+  "outDir": "out/img-gen/example",
+  "count": 2,
+  "items": [
+    { "type": "brand", "name": "Heinz" },
+    { "type": "category", "name": "Soft drinks", "details": "cans and plastic bottles" },
+    { "type": "product", "name": "Heinz Tomato Ketchup 1L", "brand": "Heinz", "details": "squeezy upside down bottle" },
+    { "type": "product", "name": "Coca-Cola Original 24 x 330ml", "brand": "Coca-Cola", "details": "shrink wrapped case of cans", "count": 1 }
+  ]
+}
