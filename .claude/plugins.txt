@@ -1,0 +1,35 @@
+Plugins and tools (notes only, not required)
+
+Handy tools to install when a project needs them. None of these are mandatory.
+
+Database and backend
+supabase cli / mcp     Local database, migrations, and linking the hosted project
+stripe cli             Forward webhooks to localhost and trigger test events
+
+Deploy and repo
+vercel cli             Deploys, logs, and pulling env values
+github cli (gh)        PRs, issues, and CI runs from the terminal
+
+Testing and browser
+playwright cli / mcp   Browser testing and automation
+chrome devtools mcp    Console, network, and performance traces
+
+Frontend and design
+skillui                Frontend UI skills
+shadcn cli             Copy UI pieces into the registry folder
+figma mcp              Read designs, tokens, and assets from Figma
+sharp cli              Convert images to WebP and AVIF
+
+Quality, SEO, and accessibility
+lighthouse cli         Core Web Vitals and SEO audits
+axe cli                Accessibility checks (WCAG)
+knip                   Find unused files, exports, and dependencies
+
+Security
+strix                  Security testing
+semgrep                Static code security scan
+gitleaks               Catch secrets before they are committed
+
+Docs and monitoring
+context7               Up to date library and framework docs
+sentry cli / mcp       Error tracking and release info
